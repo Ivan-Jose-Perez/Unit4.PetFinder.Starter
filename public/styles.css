@@ -1,13 +1,97 @@
 body {
-    background-color: #f0f0f5;
-    color: #333;
     font-family: Arial, sans-serif;
+    background-color: #304b5e; /* Independence */
+    color: #e9f1f7; /* Light Blue */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-div {
-    background-color: #fff;
-    border: 1px solid #ccc;
+header {
+    background-color: rgba(51, 53, 81, 0.7); /* Space Cadet with transparency */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    height: 100px;
+}
+
+.banner {
+    display: flex;
+    justify-content: space-around; /* Aligns search bars evenly spaced within the banner */
+    width: 100%;
+    padding: 10px 0;
+    top: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+input[type="text"] {
     padding: 10px;
-    margin: 5px;
+    margin: 0 10px;
+    border: 1px solid #ccc; /* Light Gray */
     border-radius: 5px;
+    width: 200px; /* Fixed width for better control */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue (RYB) */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2575ca; /* Moderate Blue */
+}
+
+main {
+    margin-top: 140px; /* Increased margin to account for fixed header */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the pet cards on the page */
+    width: 100%;
+
+}
+
+#pets-container > div {
+    background-color: #fff; /* White */
+    color: black; /* Black, to improve readability */
+    border: 1px solid #ccc; /* Light Gray */
+    padding: 20px;
+    margin: 100px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: calc(33% - 20px); /* Adjusts width dynamically but maintains margin */
+    text-align: center;
+    min-width: 300px;
+}
+
+@media (max-width: 600px) {
+    .banner {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    #pets-container > div {
+        width: 90%; /* Full width cards on smaller screens */
+    }
+}
+
+.logo-container {
+    height: 50px; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    height: 100%; /* Makes the logo as tall as its container */
+    max-width: none; /* Ensures the logo is not restricted by width */
 }

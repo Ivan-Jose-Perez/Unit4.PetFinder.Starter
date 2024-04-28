@@ -83,14 +83,14 @@ app.get('/api/v1/pets', (req, res) => {
 });
 
 // Get pet by owner with query string
-app.get('/api/v1/pets/owner', (req, res) => {
-    const owner = req.query.owner;
-    console.log(`Received request to get pets by owner: ${owner}`);
-    const petsByOwner = pets.filter(pet => pet.owner === owner);
+app.get('/api/v1/pets/owner/:ownerName', (req, res) => {
+    const ownerName = req.params.ownerName;
+    console.log(`Received request to get pets by owner: ${ownerName}`);
+    const petsByOwner = pets.filter(pet => pet.owner.toLowerCase() === ownerName.toLowerCase());
     if (petsByOwner.length > 0) {
         res.json(petsByOwner);
     } else {
-        console.log('No pets found for owner:', owner);
+        console.log('No pets found for owner:', ownerName);
         res.status(404).send('No pets found for this owner');
     }
 });
